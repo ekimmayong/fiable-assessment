@@ -1,53 +1,51 @@
-import React from 'react';
 import { Table, TableCell, TableContainer, TableBody, TableRow } from '@mui/material';
 import { North, South, East, West} from '@mui/icons-material';
-import { styles } from './styles';
-import { directions } from '../common/directions';
-import { useTheme } from '../hooks/useTheme';
+import { styles } from './styles.ts';
+import { directions } from '../common/directions.ts';
+import { useTheme } from '../hooks/useTheme.ts';
 
 const TABLE_ROWS = 5;
 const TABLE_COLUMNS = 5;
 
-export const GridTable = ({xPosition, yPosition, direction}) => {
+interface GridTableProps {
+    xPosition: number | undefined;
+    yPosition: number | undefined;
+    direction: string | undefined;
+}
+
+export const GridTable = ({xPosition, yPosition, direction}: GridTableProps) => {
     const theme = useTheme();
 
     const getDirection = () => {
-        const style = { 
-            color: theme.typography.color.selected,
-            fontSize: theme.typography.h1,
-            fontWeight: theme.typography.fontWeightBold
-        };
-
         switch (direction) {
             case directions.NORTH:
-                return <North style={style}/>;
+                return <North color='action' />;
             case directions.SOUTH:
-                return <South style={style}/>;
+                return <South color='action' />;
             case directions.EAST:
-                return <East style={style}/>;
+                return <East color='action' />;
             case directions.WEST:
-                return <West style={style}/>;
+                return <West color='action' />;
             default:
                 return null;
         }
     }
 
     return (
-        <TableContainer component='paper'>
+        <TableContainer component='div' style={{...styles.tableContainer, backgroundColor: theme.palette.primary.light}}>
             <Table>
                 <TableBody>
                     {Array.from({ length: TABLE_ROWS }).map((_, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {Array.from({ length: TABLE_COLUMNS }).map((_, colIndex) => (
                                 <TableCell
-                                    id={`R${TABLE_ROWS - rowIndex -1}C${colIndex}`}
                                     key={colIndex}
                                     style={{
                                         ...styles.tableCell,
                                         backgroundColor: (
                                             xPosition === colIndex && yPosition === (TABLE_ROWS - rowIndex -1))
-                                            ? theme.backgroundColor.selected 
-                                            : theme.backgroundColor.lightBlue
+                                            ? theme.palette.action.selected
+                                            : undefined
                                     }}
                                 >
                                     {

@@ -1,11 +1,11 @@
 import { createTheme } from '@mui/material/styles';
-import { grey, lightBlue, indigo, red } from '@mui/material/colors'
+import { grey, indigo, red } from '@mui/material/colors'
 
 export const useTheme = () => {
     const theme = createTheme({
         palette: {
             primary: {
-                light: indigo['500'],
+                light: indigo['50'],
                 main: indigo['700'],
                 dark: indigo['900'],
                 contrastText: '#fff',
@@ -16,23 +16,23 @@ export const useTheme = () => {
                 dark: red['900'],
                 contrastText: '#000',
             },
+            action: {
+                selected: indigo['100'],
+            },
+            background: {
+                default: grey['50'],
+                paper: '#fff',
+        },
         },
         typography: {
             fontFamily: 'Roboto, Arial, sans-serif',
             fontSize: 14,
             fontWeightBold: 700,
-            color: {
-                main: indigo['700'],
-                selected: indigo['50'],
+            h1: {
+                fontSize: '2rem',
             },
-            h1: '2rem',
         },
         spacing: 2,
-        backgroundColor: {
-            grey: grey['50'],
-            lightBlue: lightBlue['50'],
-            selected: lightBlue['500'],
-        },
 
     });
 

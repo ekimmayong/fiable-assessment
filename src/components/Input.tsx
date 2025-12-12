@@ -5,16 +5,19 @@ import { styles } from './styles';
 import { inputValidations } from '../validations/inputValidations';
 import { useTheme } from '../hooks/useTheme';
 
-export const InputForm = ({ onSubmit }) => {
+interface InputFormProps {
+    onSubmit: (input: string) => void;
+}
+export const InputForm = ({ onSubmit }: InputFormProps) => {
     const theme = useTheme();
     const [inputValue, setInputValue] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const validation = inputValidations({ input: inputValue });
 

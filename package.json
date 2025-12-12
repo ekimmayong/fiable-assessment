@@ -17,15 +17,17 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -41,6 +43,18 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@storybook/preset-create-react-app": "^10.1.7",
+    "@storybook/react": "^10.1.7",
+    "@storybook/react-vite": "^10.1.7",
+    "@types/node": "^25.0.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "eslint-plugin-storybook": "^10.1.7",
+    "prop-types": "^15.8.1",
+    "storybook": "^10.1.7",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7",
+    "webpack": "^5.103.0"
   }
 }

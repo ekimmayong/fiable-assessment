@@ -1,4 +1,6 @@
-export const styles = {
+import React from 'react';
+
+export const styles: {[key: string]: React.CSSProperties } = {
     tableCell: {
         border: '1px solid black',
         width: '50px',

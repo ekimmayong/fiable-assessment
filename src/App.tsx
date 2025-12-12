@@ -1,5 +1,4 @@
-import React from 'react';
-import { Homepage } from './pages/homepage';
+import { Homepage } from './pages/Homepage';
 import { ThemeProvider } from '@mui/material/styles';
 import { useTheme } from './hooks/useTheme';
 
