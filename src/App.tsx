@@ -1,4 +1,4 @@
-import { Homepage } from './pages/Homepage';
+import { Homepage } from './pages'
 import { ThemeProvider } from '@mui/material/styles';
 import { useTheme } from './hooks/useTheme';
 

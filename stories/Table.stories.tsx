@@ -1,10 +1,17 @@
 import type { Meta, StoryObj} from '@storybook/react-vite';
 
-import { GridTable } from '../src/components/Table';
+import { GridTable } from '../src/components/table/table';
 
 const meta = {
     title: 'Table',
     component: GridTable,
+    decorators: [
+        (Story) => (
+            <div style={{ width: '700px', height: '500px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } satisfies Meta<typeof GridTable>;
 
 export default meta;

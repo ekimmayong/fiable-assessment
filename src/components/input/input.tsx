@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Input, Paper, IconButton, FormControl, FormHelperText, InputLabel } from '@mui/material';
 import { PlayCircleOutline } from '@mui/icons-material';
-import { styles } from './styles';
-import { inputValidations } from '../validations/inputValidations';
-import { useTheme } from '../hooks/useTheme';
+import { styles } from './input.styles';
+import { inputValidations } from '../../helper/inputValidations';
+import { InputFormProps } from './input.interface';
+import { useTheme } from '../../hooks/useTheme';
 
-interface InputFormProps {
-    onSubmit: (input: string) => void;
-}
 export const InputForm = ({ onSubmit }: InputFormProps) => {
     const theme = useTheme();
     const [inputValue, setInputValue] = useState('');

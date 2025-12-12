@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { InputForm } from '../components/Input';
-import { GridTable } from '../components/Table';
+import { InputForm } from '../../components/input/input';
+import { GridTable } from '../../components/table/table';
 import { Box } from '@mui/material';
-import { useTheme } from '../hooks/useTheme';
-import '../App.css';
+import { useTheme } from '../../hooks/useTheme';
+import { styles } from './homepage.styles';
 
 export const Homepage = () => {
     const theme = useTheme();
@@ -16,14 +16,14 @@ export const Homepage = () => {
         const coords = splitInput[0].trim().split(',');
         const dir = splitInput[1].trim();
 
-        setXPosition(parseInt(coords[0], 10));
-        setYPosition(parseInt(coords[1], 10));
+        setXPosition(parseInt(coords[0]));
+        setYPosition(parseInt(coords[1]));
         setDirection(dir);
     }
 
     return (
-        <div className="app">
-            <Box className='header'>
+        <div className="app" style={styles.app}>
+            <Box style={styles.header}>
                 <h2 style={{ color: theme.palette.text.primary }}>
                     Visualize Coordinate Placement and Direction
                 </h2>
@@ -32,12 +32,12 @@ export const Homepage = () => {
                 </p>
             </Box>
             <Box
-                className='appContainer'
                 style={{
+                    ...styles.appContainer,
                     backgroundColor: theme.palette.background.default
                 }}
             >
-                <div className='inputContainer'>
+                <div>
                     <InputForm onSubmit={handleInputSubmit}/>
                 </div>
                 <GridTable xPosition={xPosition} yPosition={yPosition} direction={direction}/>

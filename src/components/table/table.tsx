@@ -1,8 +1,8 @@
 import { Table, TableCell, TableContainer, TableBody, TableRow } from '@mui/material';
 import { North, South, East, West} from '@mui/icons-material';
-import { styles } from './styles.ts';
-import { directions } from '../common/directions.ts';
-import { useTheme } from '../hooks/useTheme.ts';
+import { styles } from './table.styles';
+import { directions } from '../../common/directions.ts';
+import { useTheme } from '../../hooks/useTheme.ts';
 
 const TABLE_ROWS = 5;
 const TABLE_COLUMNS = 5;
